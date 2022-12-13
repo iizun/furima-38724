@@ -10,7 +10,7 @@
 | last_name             | string | null: false               |
 | first_name            | string | null: false               |
 | last_name_ruby        | string | null: false               |
-| last_name_ruby        | string | null: false               |
+| first_name_ruby       | string | null: false               |
 | birth_date            | date   | null: false               |
 
 ### Association
