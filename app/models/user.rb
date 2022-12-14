@@ -12,7 +12,7 @@ class User < ApplicationRecord
           validates :last_name
         end
 
-        with_options presence: true, format: { with: /\A[ァ-ン]+\z/, message: '全角カタカナを使用してください' } do
+        with_options presence: true, format: { with: /\A[ァ-ヶ一]+\z/, message: '全角カタカナを使用してください' } do
           validates :first_name_ruby
           validates :last_name_ruby
         end
