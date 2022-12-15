@@ -14,6 +14,7 @@ class Item < ApplicationRecord
   validates :condition_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :delivery_charge_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :delivery_day_id, numericality: { other_than: 1 , message: "can't be blank"}
+  validates :image, presence: true
 
   validates :price, presence: true, numericality: { in: 300..9999999 , message: "can't be blank"}, format: { with: /\A(?=.*?\d)[\d]+\z/, message: '半角数字を使用してください' } 
 end
