@@ -5,6 +5,7 @@ class Item < ApplicationRecord
   belongs_to :condition
   belongs_to :delivery_charge
   belongs_to :delivery_day
+  has_one_attached :image 
 
   validates :item_name, presence: true
   validates :summary, presence: true
