@@ -9,7 +9,11 @@ RSpec.describe OrderShip, type: :model do
 
   describe '商品購入機能' do
     context '購入できる場合' do
-      it 'post_code,prefecture_id,city,house_number,building_number,phone_number,token,user_id,item_idが存在すれば購入できる' do
+      it 'post_code,prefecture_id,city,house_number,building_number,phone_number,token,user_id,item_idが存在すれば登録できる' do
+        expect(@order_ship).to be_valid
+      end
+      it 'building_numberが空でも登録できる' do
+        @order_ship.building_number = ''
         expect(@order_ship).to be_valid
       end
     end
