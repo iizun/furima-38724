@@ -21,72 +21,72 @@ RSpec.describe OrderShip, type: :model do
       it 'post_codeが存在しないと登録できない' do
         @order_ship.post_code = ''
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("Post code can't be blank")
+        expect(@order_ship.errors.full_messages).to include("郵便番号を入力してください", "郵便番号はハイフンを含めて入力してください")
       end
       it 'post_codeにハイフンがないと登録できない' do
         @order_ship.post_code = '1140021'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
+        expect(@order_ship.errors.full_messages).to include('郵便番号はハイフンを含めて入力してください')
       end
       it 'post_codeが前3桁でなければ登録できない' do
         @order_ship.post_code = '0021-0021'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
+        expect(@order_ship.errors.full_messages).to include('郵便番号はハイフンを含めて入力してください')
       end
       it 'post_codeが後4桁でなければ登録できない' do
         @order_ship.post_code = '114-114'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Post code is invalid. Include hyphen(-)')
+        expect(@order_ship.errors.full_messages).to include('郵便番号はハイフンを含めて入力してください')
       end
       it 'prefecture_idが未選択だと登録できない' do
         @order_ship.prefecture_id = '1'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("Prefecture can't be blank")
+        expect(@order_ship.errors.full_messages).to include("都道府県を入力してください")
       end
       it 'cityが存在しないと登録できない' do
         @order_ship.city = ''
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("City can't be blank")
+        expect(@order_ship.errors.full_messages).to include("市区町村を入力してください")
       end
       it 'house_numberが存在しないと登録できない' do
         @order_ship.house_number = ''
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("House number can't be blank")
+        expect(@order_ship.errors.full_messages).to include("番地を入力してください")
       end
       it 'phone_numberが存在しないと登録できない' do
         @order_ship.phone_number = ''
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("Phone number can't be blank")
+        expect(@order_ship.errors.full_messages).to include("電話番号を入力してください", "電話番号はハイフンを含まず10桁もしくは11桁で入力してください")
       end
       it 'phone_numberが9桁だと登録できない' do
         @order_ship.phone_number = '123456789'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_ship.errors.full_messages).to include('電話番号はハイフンを含まず10桁もしくは11桁で入力してください')
       end
       it 'phone_numberが12桁だと登録できない' do
         @order_ship.phone_number = '123456789123'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_ship.errors.full_messages).to include('電話番号はハイフンを含まず10桁もしくは11桁で入力してください')
       end
       it 'phone_numberが全角数字だと登録できない' do
         @order_ship.phone_number = '１２３４５６７８９０'
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include('Phone number is invalid')
+        expect(@order_ship.errors.full_messages).to include('電話番号はハイフンを含まず10桁もしくは11桁で入力してください')
       end
       it 'tokenが存在しないと登録できない' do
         @order_ship.token = nil
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("Token can't be blank")
+        expect(@order_ship.errors.full_messages).to include("クレジットカード情報を入力してください")
       end
       it 'user_idが存在しないと登録できない' do
         @order_ship.user_id = nil
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("User can't be blank")
+        expect(@order_ship.errors.full_messages).to include("Userを入力してください")
       end
       it 'item_idが存在しないと登録できない' do
         @order_ship.item_id = nil
         @order_ship.valid?
-        expect(@order_ship.errors.full_messages).to include("Item can't be blank")
+        expect(@order_ship.errors.full_messages).to include("Itemを入力してください")
       end
     end
   end

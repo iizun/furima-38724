@@ -8,12 +8,12 @@ class User < ApplicationRecord
   validates :user_name, presence: true
   validates :birth_date, presence: true
 
-  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: '全角文字を使用してください' } do
+  with_options presence: true, format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/, message: 'は全角文字を使用してください' } do
     validates :first_name
     validates :last_name
   end
 
-  with_options presence: true, format: { with: /\A[ァ-ヶ一]+\z/, message: '全角カタカナを使用してください' } do
+  with_options presence: true, format: { with: /\A[ァ-ヶ一]+\z/, message: 'は全角カタカナを使用してください' } do
     validates :first_name_ruby
     validates :last_name_ruby
   end
