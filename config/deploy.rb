@@ -13,6 +13,11 @@ set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', '
 set :rbenv_type, :user
 set :rbenv_ruby, '2.6.5' #カリキュラム通りに進めた場合、’2.6.5’ です
 
+#---------- 追記 ----------
+# ブランチを指定する
+set :branch, "main"
+#--------------------------
+
 # どの公開鍵を利用してデプロイするか
 set :ssh_options, auth_methods: ['publickey'],
                                   keys: ['~/.ssh/iizun_keypair.pem'] 
